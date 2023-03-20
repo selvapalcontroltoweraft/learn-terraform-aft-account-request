@@ -15,8 +15,36 @@ module "sandbox" {
   }
 
   change_management_parameters = {
-    change_requested_by = "HashiCorp Learn"
-    change_reason       = "Learn AWS Control Tower Account Factory for Terraform"
+    change_requested_by = "Account Provisioning Team"
+    change_reason       = "Control Tower Account Factory -Account creation"
+  }
+
+  custom_fields = {
+    group = "non-prod"
+  }
+
+  account_customizations_name = "sandbox"
+}
+
+module "microservicesandbox" {
+  source = "./modules/aft-account-request"
+
+  control_tower_parameters = {
+    AccountEmail              = "aftnewacctreqmicrosrv@gmail.com"
+    AccountName               = "sandbox-microservices"
+    ManagedOrganizationalUnit = "Sandbox"
+    SSOUserEmail              = "aftnewacctreqmicrosrv@gmail.com"
+    SSOUserFirstName          = "Sandbox"
+    SSOUserLastName           = "AFT"
+  }
+
+  account_tags = {
+    "Learn Tutorial" = "AFT"
+  }
+
+  change_management_parameters = {
+    change_requested_by = "Account Provisioning Team"
+    change_reason       = "Control Tower Account Factory -Account creation"
   }
 
   custom_fields = {

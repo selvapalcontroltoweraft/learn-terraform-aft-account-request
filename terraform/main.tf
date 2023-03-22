@@ -53,3 +53,64 @@ module "microservicesandbox" {
 
   account_customizations_name = "sandbox"
 }
+
+
+module "datameshsandbox" {
+  source = "./modules/aft-account-request"
+
+  control_tower_parameters = {
+    AccountEmail              = "selvacontroltowerdatamesh@outlook.com"
+    AccountName               = "sandbox-datamesh"
+    ManagedOrganizationalUnit = "Sandbox"
+    SSOUserEmail              = "selvacontroltowerdatamesh@outlook.com"
+    SSOUserFirstName          = "Sandbox"
+    SSOUserLastName           = "AFT"
+  }
+
+  account_tags = {
+    "Acct Deployment type" = "AFT"
+  }
+
+  change_management_parameters = {
+    change_requested_by = "Account Provisioning Team"
+    change_reason       = "Control Tower Account Factory -Account creation"
+  }
+
+  custom_fields = {
+    group = "non-prod"
+  }
+
+  account_customizations_name = "sandbox"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
